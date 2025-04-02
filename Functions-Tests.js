@@ -367,4 +367,45 @@ function factorialNumero(num) {
 let resultadoFactorialNumero = factorialNumero(5);
 console.log(resultadoFactorialNumero)
 
-// Solo es para practicar Javascript - Jhon Rivero
+/*----------------------------------------------------------------------------*/
+function counterCharacters (str) {
+  if (str == null || str == undefined || typeof str == 'function' || typeof str === 'symbol') return 0;
+  
+  if (typeof str === 'bigint') return str.toString().length;
+  
+  if (Array.isArray(str)) {
+    return str = str.join("").length;
+  }
+
+  if (typeof str === 'object') {
+    str = Object.values(str);
+    return str.join("").length;
+  }
+  
+  if (typeof str === 'number') {
+    return str.toString().length;
+  }
+  
+  if (typeof str === 'boolean') {
+    return str.toString().length;
+  }
+  
+  return str.length;
+}
+
+console.log("String", counter("12345"));
+console.log("Array", counter(["12345", "12345", "12345"]));
+console.log("Object", counter({ a: "test", b: "test", c: "test"}));
+console.log("Number", counter(12345));
+console.log("Boolean", counter(true));
+console.log("Undefined", counter(undefined));
+console.log("Null", counter(null));
+console.log("Function", counter(function(){}));
+console.log("Empty Array", counter([]));
+console.log("Empty Object", counter({}));
+console.log("Symbol", counter(Symbol()));
+console.log("Maps", counter(new Map()));
+console.log("Sets", counter(new Set()));
+console.log("Bigint", counter(BigInt(123n)));
+
+// Para practicar Javascript - Jhon Rivero
